@@ -72,8 +72,6 @@ export default function SideBarItems() {
         </span>
         <span className="list-item-text">Profile</span>
       </li>
-      {/* Por enquanto */}
-      <ThemeSwitcher />
     </div>
   );
 }

@@ -19,6 +19,7 @@ export default function ThemeSwitcher() {
     setIsSelected(!isSelected);
     isSelected ? setTheme("light") : setTheme("dark");
   };
+
   return (
     <div>
       <Switch

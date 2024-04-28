@@ -11,6 +11,7 @@ import logo from "@/images/camera.png";
 import Link from "next/link";
 import SideBarItems from "./SideBarItems";
 import SidebarLogo from "./SidebarLogo";
+import SidebarFooterItems from "./SidebarFooterItems";
 
 export default function Sidebar() {
   return (
@@ -19,20 +20,7 @@ export default function Sidebar() {
         <SidebarLogo />
         <SideBarItems />
       </div>
-      <div className="flex flex-col ">
-        <li className="list">
-          <span>
-            <AtSymbolIcon className="icon-size" />
-          </span>
-          <span className="list-item-text">Threads</span>
-        </li>
-        <li className="list">
-          <span>
-            <Bars3Icon className="icon-size" />
-          </span>
-          <span className="list-item-text">More</span>
-        </li>
-      </div>
+      <SidebarFooterItems />
     </div>
   );
 }
