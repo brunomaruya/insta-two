@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import TProvider from "@/providers/TProvider";
 import { NextUIProvider } from "@nextui-org/system";
+import { CookiesProvider } from "react-cookie";
+import MainProvider from "@/providers/MainProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,9 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <NextUIProvider>
-          <TProvider>{children}</TProvider>
-        </NextUIProvider>
+        <MainProvider>{children}</MainProvider>
       </body>
     </html>
   );
