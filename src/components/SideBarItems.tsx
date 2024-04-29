@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useContext } from "react";
 import {
   HomeIcon,
   MagnifyingGlassIcon,
@@ -20,11 +21,13 @@ import {
   UserCircleIcon as UserCircleIconAct,
 } from "@heroicons/react/24/solid";
 import ThemeSwitcher from "./common/ThemeSwitcher";
+import { CurrentUserContext } from "@/app/context/CurrentUser";
 
 export default function SideBarItems() {
+  const { name } = useContext(CurrentUserContext);
   return (
     <div className="flex flex-col ">
-      <li className="list">
+      <li className="list" onClick={() => (window.location.href = "/")}>
         <span>
           <HomeIcon className="icon-size" />
         </span>
@@ -66,7 +69,7 @@ export default function SideBarItems() {
         </span>
         <span className="list-item-text">Post</span>
       </li>
-      <li className="list">
+      <li className="list" onClick={() => (window.location.href = `/${name}`)}>
         <span>
           <UserCircleIcon className="icon-size" />
         </span>

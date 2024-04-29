@@ -62,7 +62,12 @@ export default function ModalContentComp() {
       </li>
       <Divider />
       <li className={listStyle}>
-        <span className={listItemText}>Sign out</span>
+        <span
+          className={listItemText}
+          onClick={() => (window.location.href = "/auth/sign-in")}
+        >
+          Sign out
+        </span>
       </li>
     </ModalContent>
   );

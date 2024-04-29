@@ -5,6 +5,9 @@ import TProvider from "@/providers/TProvider";
 import { NextUIProvider } from "@nextui-org/system";
 import { CookiesProvider } from "react-cookie";
 import MainProvider from "@/providers/MainProvider";
+import Sidebar from "@/components/Sidebar";
+import TopBar from "@/components/TopBar";
+import BottomBar from "@/components/BottomBar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,7 +24,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <MainProvider>{children}</MainProvider>
+        <MainProvider>
+          <div className="md:flex   w-full">
+            <Sidebar />
+            <TopBar />
+            <div className="mt-[58px]">{children}</div>
+            <BottomBar />
+          </div>
+        </MainProvider>
       </body>
     </html>
   );

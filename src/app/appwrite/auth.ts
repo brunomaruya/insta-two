@@ -1,7 +1,7 @@
 import { client } from "@/app/appwrite/appwrite";
 import { Account, ID } from "appwrite";
 
-const account = new Account(client);
+export const account = new Account(client);
 
 export async function createAccount({
   name,
@@ -23,3 +23,36 @@ export async function createAccount({
     }
   );
 }
+
+export async function logIn({
+  email,
+  password,
+}: {
+  email: string;
+  password: string;
+}) {
+  const promise = account.createEmailPasswordSession(email, password);
+
+  promise.then(
+    function (response) {
+      console.log("logIn: " + response); // Success
+      window.location.href = "/";
+    },
+    function (error) {
+      console.log("logIn: " + error); // Failure
+    }
+  );
+}
+
+// export async function getAccount() {
+//   const promise = account.get();
+
+//   promise.then(
+//     function (response) {
+//       console.log(response); // Success
+//     },
+//     function (error) {
+//       console.log(error); // Failure
+//     }
+//   );
+// }

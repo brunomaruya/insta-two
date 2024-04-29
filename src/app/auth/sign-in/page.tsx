@@ -1,20 +1,19 @@
 "use client";
 import React from "react";
-import { createAccount } from "../../appwrite/auth";
+import { createAccount, logIn } from "../../appwrite/auth";
 import { Input } from "@nextui-org/input";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Button } from "@nextui-org/button";
 import Link from "next/link";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { UserSchema } from "../signUp";
+import { UserSchema } from "../signIn";
+
 type Inputs = {
-  name: string;
   email: string;
   password: string;
-  confirmPassword: string;
 };
 
-export default function signUp() {
+export default function page() {
   const {
     register,
     handleSubmit,
@@ -22,7 +21,7 @@ export default function signUp() {
     formState: { errors },
   } = useForm<Inputs>({ resolver: zodResolver(UserSchema) });
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => createAccount(data);
+  const onSubmit: SubmitHandler<Inputs> = (data) => logIn(data);
   return (
     <div className="w-full h-screen flex justify-center items-center ">
       <form
@@ -30,12 +29,6 @@ export default function signUp() {
         onSubmit={handleSubmit(onSubmit)}
       >
         <h1 className="logo text-center mb-10">InstaTwo</h1>
-        <Input
-          label="Name"
-          isInvalid={errors.name ? true : false}
-          errorMessage={errors.name?.message}
-          {...register("name")}
-        />
 
         <Input
           label="Email"
@@ -49,24 +42,18 @@ export default function signUp() {
           errorMessage={errors.password?.message}
           {...register("password")}
         />
-        <Input
-          label="Confirm Password"
-          isInvalid={errors.password ? true : false}
-          errorMessage={errors.password?.message}
-          {...register("confirmPassword")}
-        />
+
         <Button type="submit" className="bg-primary">
-          Sign up
+          Sign In
         </Button>
 
         <p>
-          Have an Account?
+          Don't have an Account?
           <span className="text-primary">
-            <Link href="/auth/sign-in"> Sign in</Link>
+            <Link href="/auth/sign-up"> Sign up</Link>
           </span>
         </p>
       </form>
-      {/* <button onClick={() => createAccount()}>Create</button> */}
     </div>
   );
 }
