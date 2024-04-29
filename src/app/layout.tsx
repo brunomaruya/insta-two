@@ -28,7 +28,7 @@ export default function RootLayout({
           <div className="md:flex   w-full">
             <Sidebar />
             <TopBar />
-            <div className="mt-[58px]">{children}</div>
+            <div className="mt-[58px] md:mt-8 w-full">{children}</div>
             <BottomBar />
           </div>
         </MainProvider>

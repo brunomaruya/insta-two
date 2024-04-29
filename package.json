@@ -17,6 +17,7 @@
     "@nextui-org/modal": "^2.0.33",
     "@nextui-org/switch": "^2.0.28",
     "@nextui-org/system": "^2.1.2",
+    "@nextui-org/tabs": "^2.0.29",
     "@nextui-org/theme": "^2.2.3",
     "appwrite": "^14.0.1",
     "framer-motion": "^11.1.7",
