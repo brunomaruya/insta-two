@@ -3,19 +3,23 @@ import { Account, ID } from "appwrite";
 
 const account = new Account(client);
 
-export async function createAccount() {
-  const promise = account.create(
-    ID.unique(),
-    "email@example.com",
-    "primeiraSenha",
-    "name"
-  );
+export async function createAccount({
+  name,
+  email,
+  password,
+}: {
+  name: string;
+  email: string;
+  password: string;
+}) {
+  const promise = account.create(ID.unique(), email, password, name);
   promise.then(
     function (response) {
-      console.log(response); // Success
+      console.log("createAccount: " + response); // Success
+      window.location.href = "/";
     },
     function (error) {
-      console.log(error); // Failure
+      console.log("createAccount: " + error); // Failure
     }
   );
 }
