@@ -8,6 +8,7 @@ export default function ThemeSwitcher() {
   const [cookies, setCookie] = useCookies(["isThemeToggleSelected"]);
 
   const { setTheme } = useTheme();
+
   const [mounted, setMounted] = useState(false);
   useEffect(() => {
     setMounted(true);
