@@ -29,7 +29,7 @@ body {
   color: var(--text);
 }
 .sidebarStyles {
-  @apply h-screen py-3 px-3  border-r-[0.5px] border-text hidden md:flex md:w-80 flex-col justify-between;
+  @apply h-screen py-3 px-3  border-r-[0.5px] border-text hidden md:flex xl:w-80 flex-col justify-between;
 }
 .logo {
   font-family: "Caveat", cursive;

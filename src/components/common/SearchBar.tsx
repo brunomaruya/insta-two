@@ -3,11 +3,11 @@ import React from "react";
 
 export default function SearchBar() {
   return (
-    <div className="bg-gray-300 rounded-md flex items-center px-2 ">
+    <div className="bg-[var(--text)] text-[var(--background)] rounded-md flex items-center justify-center px-2 w-52 h-8">
       <MagnifyingGlassIcon className="h-5 w-5" />
       <input
         type="text"
-        className="bg-transparent py-2 px-4 focus:outline-none"
+        className="bg-transparent py-2 px-4 focus:outline-none w-full"
       />
     </div>
   );
